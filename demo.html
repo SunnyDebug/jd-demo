@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能测试</title>
+</head>
+<body>
+    <h2>订购逻辑测试</h2>
+    <p>点击下方按钮，应跳转至京东登录或结算页。</p>
+    
+    <button id="buyBtn" style="width:100%; height:50px; background:red; color:white;">
+        立即订购 (测试)
+    </button>
+
+    <script src="jd_bridge.js"></script>
+
+    <script>
+        // 2. 绑定事件
+        document.getElementById('buyBtn').addEventListener('click', function() {
+            JDBridge.submit({
+                skuId: '10208169772071' // <--- 填一个京东真实存在的商品ID
+            });
+        });
+    </script>
+</body>
+</html>
