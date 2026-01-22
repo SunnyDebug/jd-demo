@@ -2,24 +2,40 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>功能测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>签约跳转测试</title>
 </head>
 <body>
-    <h2>订购逻辑测试</h2>
-    <p>点击下方按钮，应跳转至京东登录或结算页。</p>
-    
-    <button id="buyBtn" style="width:100%; height:50px; background:red; color:white;">
-        立即订购 (测试)
-    </button>
+    <div style="padding: 20px; text-align: center;">
+        <h2>VIP 签约通道测试</h2>
+        <p>点击按钮，测试是否直达签约收银台。</p>
+        
+        <button id="buyBtn" style="
+            width: 100%; 
+            height: 50px; 
+            background: #f10000; 
+            color: white; 
+            border: none; 
+            border-radius: 25px; 
+            font-size: 18px; 
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        ">
+            立即开通 (VIP)
+        </button>
+    </div>
 
     <script src="jd_bridge.js"></script>
 
     <script>
-        // 2. 绑定事件
         document.getElementById('buyBtn').addEventListener('click', function() {
             JDBridge.submit({
-                skuId: '10208169772071' // <--- 填一个京东真实存在的商品ID
+                // 👇 这里填你刚刚找到的【真·签约链接】
+                targetUrl: 'https://web-pay.jdpay.com/withhold/start/index.html#/home?key=8263B6120189B709C00C377B7CA6217F&outTradeNo=202026012015089',
+                
+                // 埋点用的ID (保持不变即可)
+                skuId: '10208169772071' 
             });
         });
     </script>
